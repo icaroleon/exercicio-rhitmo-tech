@@ -1,0 +1,9 @@
+<% @bedrooms.each do |bedroom| %>
+    <%= link_to bedroom_path(bedroom), class: 'text-decoration-none' do  %>
+    <div class="card-product p-3 m-3">
+    
+        <p><%=bedroom.description%> <strong>VALOR/DIA: R$<%=bedroom.price%></strong></p>
+      </div>
+     </div>
+   <% end %>
+  <% end %>
