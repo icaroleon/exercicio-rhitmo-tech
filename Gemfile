@@ -49,3 +49,6 @@ gem "devise"
 
 #Simple form
 gem "simple_form", github: "heartcombo/simple_form"
+
+#Cloudinary
+gem "dotenv-rails", groups: [:development, :test]
