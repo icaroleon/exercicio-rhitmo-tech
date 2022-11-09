@@ -1,0 +1,33 @@
+<div class="card-category">
+  <div>
+    <h1>Bedrooms for Rent</h1>
+  </div>
+  <div class="">
+    <p>Encontre o que você precisa</p>
+  </div>
+</div>
+<div class="container w-75 pt-3 pb-5 mb-5">
+  </div>
+  <h2 class="mt-5 ms-3">Últimos itens publicados</h2>
+  <div class="cards card-bedroom ms-3 mt-3">
+    <% @bedrooms.last(9).each do |bedroom| %>
+    <%= link_to bedroom_path(bedroom), class: 'text-decoration-none' do  %>
+      <div class="card-trip">
+        <%= cl_image_tag bedroom.photo.key, height: 300, width: 400, crop: :fill %>
+        <div class="card-trip-infos">
+          <div>
+            <h3>(<%=bedroom.category%>)</h3>
+            <br>
+            <p><%=bedroom.description%></p>
+            <p><%=bedroom.price%></p>
+          </div>
+          <h4 class="card-trip-pricing">R$<%=bedroom.price%>/por dia</h4>
+        </div>
+        </div>
+    <% end %>
+    <%end%>
+  </div>
+
+
+</div>
+</div>

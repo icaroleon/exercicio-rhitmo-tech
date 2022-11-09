@@ -46,9 +46,11 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Gem to authenthicate
 gem "devise"
-
 #Simple form
 gem "simple_form", github: "heartcombo/simple_form"
-
-#Cloudinary
+#Dotenv
 gem "dotenv-rails", groups: [:development, :test]
+#Cloudinary
+gem "cloudinary"
+
+gem "pundit"

@@ -1,7 +1,20 @@
 <div class="container mt-4 mb-4 p-4">
   <h1 class= "ms-3"><%= @bedroom.description %></h1>
   <h1 class= "ms-3"><%= @bedroom.price %></h1>
+  <%= cl_image_tag @bedroom.photo.key, height: 300, width: 400, crop: :fill %>
+  <% unless policy(@bedroom).edit? %>
+      <div class="form-wrapper" style="width: 250px; margin: 0 auto;">
+        <p class="mb-1 ms-1">SELECIONE O PERÍODO:</p>
+        <%= simple_form_for :search, method: "get" do |f| %>
+          <%= f.input :starts_at, label: false, as: :string, required: false, input_html: {class: "datepicker mt-3", id: "range_start"} %>
+        <% end %>
+      </div>
+      <%end%>
   </div>
-
+  <%if policy(@bedroom).destroy? && @bedroom.rented == false %>
+    <%= link_to "DELETAR", bedroom_path(@bedroom), method: :delete, data: {confirm: 'Você edroom certeza?'}, class: "btn btn-warning ms-3" %>
+  <% elsif @bedroom.rented == false %>
+    <%= link_to "ALUGUE", bedroom_rents_path(@bedroom), method: :post, data: {confirm: "Alugar #{@bedroom.id}?"}, class: "btn btn-success ms-3" %>
+  <%end %>
   <%= link_to 'VOLTAR', bedrooms_path(@bedroom), class: "btn btn-secondary ms-3" %>
 </div>
